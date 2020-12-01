@@ -102,7 +102,7 @@ const emptyValues: any = ProductSchema.cast();
 
 export default function PageProductForm() {
   const history = useHistory();
-  const {id} = useParams();
+  const { id } = useParams() as any;
   const [product, setProduct] = useState<Product | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
@@ -118,7 +118,7 @@ export default function PageProductForm() {
       setIsLoading(false);
       return;
     }
-    axios.get(`${API_PATHS.bff}/product/${id}`)
+    axios.get(`${API_PATHS.bff}/products/${id}`)
       .then(res => {
         setProduct(res.data);
         setIsLoading(false);
